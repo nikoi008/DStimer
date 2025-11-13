@@ -1,2 +1,3 @@
 # DStimer
-A cstimer clone for the Nintendo DS 
+A rubik's cube timer for the Nintendo DS 
+
