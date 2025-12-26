@@ -1,6 +1,8 @@
 # SPDX-License-Identifier: CC0-1.0
 #
-# SPDX-FileContributor: Antonio Niño Díaz, 2024
+# Project: DS Cube Timer
+# Author:  nikoi008w 
+# Base Makefile template by Antonio Niño Díaz (BlocksDS)
 
 BLOCKSDS	?= /opt/blocksds/core
 
