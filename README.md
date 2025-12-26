@@ -1,3 +1,26 @@
 # DStimer
-A rubik's cube timer for the Nintendo DS 
+A rubik's cube timer for the Nintendo DS
 
+# Key features
+Scramble preview on bottom screen  
+Transition between scramble and timing similar to that of popular speedcubing timers.  
+Scrambling that works smartly, preventing redundant moves such as R R'.
+# Installation  
+Go to the [Releases](https://github.com/nikoi008/DStimer/releases/) and pop it in your flashcart or your emulator of choice  
+
+# Building for yourself
+This project uses [BlocksDS](https://github.com/blocksds/sdk) SDK, and [Wonderful Toolchain](https://wonderful.asie.pl/wiki/doku.php?id=getting_started).  
+Detailed installation instructions can be found in the [Getting Started](https://blocksds.skylyrac.net/docs/setup/) section in the BlocksDS docs.
+
+Then put the source folder and makefile somewhere in /opt/wonderful/thirdparty/blocksds/core/ or C\msys64\opt\wonderful\thirdparty\blocksds\core\ctimer on Windows to ensure no missing dependency errors.
+
+Open wonderful and navigate to the directory `cd /PATH/TO/YOUR/MAKEFILE` and then type `make`.
+
+# Possible upcoming features  
+> Please keep in mind that this is a hobby project and I will likely not be implementing many of these soon, however feel free to fork it if you want to improve it.
+
+Since this is something that I will use daily, I have created a checklist with things that I want to add to this project to make it more enjoyable to use, such as:  
+File handling - Creating sessions and save times that will be stored on the DS.  
+AOX - Making an average of n solves to track my progress  
+Scrambling beyond 3x3 - Introduce different scrambling for 2x2-7x7 and even more obscure cubes such as Square-1  
+More customisation - Ability to change colour of background, cube stickers and possibly fonts.
