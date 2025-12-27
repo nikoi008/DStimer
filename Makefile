@@ -1,8 +1,13 @@
 # SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2024 Adrian "asie" Siekierka
+#
+# Modifications and additional logic:
+# Copyright (c) 2025 nikoi008
+# Licensed under the GNU GPL v3.0
 #
 # Project: DS Cube Timer
 # Author:  nikoi008w 
-# Base Makefile template by Antonio Niño Díaz (BlocksDS)
+
 
 BLOCKSDS	?= /opt/blocksds/core
 
