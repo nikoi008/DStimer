@@ -36,3 +36,6 @@ Since this is something that I will use daily, I have created a checklist with t
 AOX - Making an average of n solves to track progress  
 Scrambling beyond 3x3 - Introduce different scrambling for 2x2-7x7 and even more obscure cubes such as Square-1. Cubes available currently: 2x2,3x3  
 More customisation - Ability to change colour of background, cube stickers and possibly fonts.
+
+# Credits
+Credits to u/averageteencuber for the cube drawing that is now the icon of this project
