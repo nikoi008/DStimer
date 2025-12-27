@@ -4,7 +4,9 @@ A rubik's cube timer for the Nintendo DS
 # Key features
 Scramble preview on bottom screen  
 Transition between scramble and timing similar to that of popular speedcubing timers.  
-Scrambling that works smartly, preventing redundant moves such as R R'.
+Scrambling that works smartly, preventing redundant moves such as R R'.  
+Solve saving and display so that you can track your progress  
+
 # Installation  
 Go to the [Releases](https://github.com/nikoi008/DStimer/releases/) and pop it in your flashcart or your emulator of choice  
 
@@ -20,7 +22,7 @@ Open wonderful and navigate to the directory `cd /PATH/TO/YOUR/MAKEFILE` and the
 > Please keep in mind that this is a hobby project and I will likely not be implementing many of these soon, however feel free to fork it if you want to improve it.
 
 Since this is something that I will use daily, I have created a checklist with things that I want to add to this project to make it more enjoyable to use, such as:  
-File handling - Creating sessions and save times that will be stored on the DS.  
-AOX - Making an average of n solves to track my progress  
-Scrambling beyond 3x3 - Introduce different scrambling for 2x2-7x7 and even more obscure cubes such as Square-1  
+✓ File handling - Creating sessions and save times that will be stored on the DS.  
+AOX - Making an average of n solves to track progress  
+Scrambling beyond 3x3 - Introduce different scrambling for 2x2-7x7 and even more obscure cubes such as Square-1. Cubes available currently: 2x2,3x3  
 More customisation - Ability to change colour of background, cube stickers and possibly fonts.
