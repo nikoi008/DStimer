@@ -15,7 +15,7 @@ Solve saving and display so that you can track your progress
 | Dpad left  | Jumps to the oldest solve    |
 | Dpad right | Jumps to the newest solve |
 | B          | Deletes current solve  |
-| Touchscreen \ any other button | Starts/stops timer |
+| Touchscreen / any other button | Starts/stops timer |
 
 # Installation  
 Go to the [Releases](https://github.com/nikoi008/DStimer/releases/) and pop it in your flashcart or your emulator of choice  
@@ -24,7 +24,7 @@ Go to the [Releases](https://github.com/nikoi008/DStimer/releases/) and pop it i
 This project uses [BlocksDS](https://github.com/blocksds/sdk) SDK, and [Wonderful Toolchain](https://wonderful.asie.pl/wiki/doku.php?id=getting_started).  
 Detailed installation instructions can be found in the [Getting Started](https://blocksds.skylyrac.net/docs/setup/) section in the BlocksDS docs.
 
-Then put the source folder and makefile somewhere in /opt/wonderful/thirdparty/blocksds/core/ or C\msys64\opt\wonderful\thirdparty\blocksds\core\ctimer on Windows to ensure no missing dependency errors.
+Then put the source folder and makefile somewhere in /opt/wonderful/thirdparty/blocksds/core/ or C\msys64\opt\wonderful\thirdparty\blocksds\core on Windows to ensure no missing dependency errors.
 
 Open wonderful and navigate to the directory `cd /PATH/TO/YOUR/MAKEFILE` and then type `make`.
 
