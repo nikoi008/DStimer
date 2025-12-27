@@ -7,6 +7,16 @@ Transition between scramble and timing similar to that of popular speedcubing ti
 Scrambling that works smartly, preventing redundant moves such as R R'.  
 Solve saving and display so that you can track your progress  
 
+# Controls
+| Key    | Action |
+| -------- | ------- |
+| Dpad down  | Scroll down on previously saved times   |
+| Dpad up    | Scroll up     |
+| Dpad left  | Jumps to the oldest solve    |
+| Dpad right | Jumps to the newest solve |
+| B          | Deletes current solve  |
+| Touchscreen \ any other button | Starts/stops timer |
+
 # Installation  
 Go to the [Releases](https://github.com/nikoi008/DStimer/releases/) and pop it in your flashcart or your emulator of choice  
 
