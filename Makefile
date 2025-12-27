@@ -5,9 +5,10 @@
 BLOCKSDS	?= /opt/blocksds/core
 
 # User config
-
-NAME		:= DSTimer
-GAME_TITLE	:= DSTimer
-GAME_SUBTITLE	:= nikoi008w
+NAME            := DSTimer
+GAME_TITLE      := DSTimer
+GAME_SUBTITLE   := DS speedcubing timer
+GAME_AUTHOR     := nikoi008          
+GAME_ICON       := icon.png #credits to u/averageteencuber (reddit) for his art
 
 include $(BLOCKSDS)/sys/default_makefiles/rom_arm9/Makefile
