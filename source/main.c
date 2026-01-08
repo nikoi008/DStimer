@@ -1,4 +1,4 @@
-# Copyright (c) 2025 nikoi008
+# Copyright (c) 2025 james :)
 # Licensed under the GNU GPL v3.0
 
 #include <stdio.h>
