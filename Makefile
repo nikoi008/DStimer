@@ -9,9 +9,9 @@
 # Author:  nikoi008w 
 
 
-BLOCKSDS	?= /opt/blocksds/core
+WONDERFUL_TOOLCHAIN ?= C:/msys64/opt/wonderful
+BLOCKSDS            ?= $(WONDERFUL_TOOLCHAIN)/thirdparty/blocksds/core
 
-# User config
 NAME            := DSTimer
 GAME_TITLE      := DSTimer
 GAME_SUBTITLE   := DS speedcubing timer

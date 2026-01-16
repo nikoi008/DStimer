@@ -1,5 +1,5 @@
-# Copyright (c) 2025 nikoi008
-# Licensed under the GNU GPL v3.0
+// Copyright (c) 2025 nikoi008
+//Licensed under the GNU GPL v3.0
 
 #include <stdio.h>
 #include <time.h>
