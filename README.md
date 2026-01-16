@@ -38,4 +38,8 @@ Scrambling beyond 3x3 - Introduce different scrambling for 2x2-7x7 and even more
 More customisation - Ability to change colour of background, cube stickers and possibly fonts.
 
 # Credits
-Credits to u/averageteencuber for the cube drawing that is now the icon of this project
+Credits to u/averageteencuber for the cube drawing that is now the icon of this project (used with permission)
+# Disclaimer
+Starting with version 3.0.0, DStimer is officially licensed under the [GNU GPL v3.0.](LICENSE) Previous versions were released without an explicit license and are provided for historical purposes only.
+
+
