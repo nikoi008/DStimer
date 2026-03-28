@@ -10,8 +10,6 @@
 #include "scrambler.h"
 #include "gui.h"
 
-
-
 void timer_handler(void) { timer_count++; }
 void hold_handler(void) { hold_count++; }
 
@@ -32,20 +30,50 @@ void skewbl(){
 
 void skeybr(){
 
-}
+}*/
 
 void drawskewb3d(){
-    //find the whatsappmage that is resized
-        glTriangleFilled(105,23,128,9,150,23,RED);
-        glTriangleFilled(104,50,81,36,104,23,RED);
-        glTriangleFilled(105,50,128,64,150,50,RED);
-        glTriangleFilled(152,23,174,36,152,50,RED);
+        glTriangleFilled(120,23,100,34,140,34,RED);
+        glTriangleFilled(141,35,141,58,161,46,RED);
+        glTriangleFilled(140,59,120,70,100,59,RED);
+        glTriangleFilled(99,58,80,46,99,35,RED);
+        glBoxFilled(99,34,140,58,YELLOW);
 
-        glTriangleFilled(79,40,102,53,80,67,RED);
-        glTriangleFilled(80,71,80,94,101,105,RED);
-        glTriangleFilled(152,23,174,36,152,50,RED);
-        glTriangleFilled(152,23,174,36,152,50,RED);
-}*/
+        glTriangleFilled(79,49,79,72,98,61,RED);
+        glTriangleFilled(100,62,119,72,119,95,RED);
+        glTriangleFilled(119,96,119,118,98,107,RED);
+        glTriangleFilled(97,106,79,96,79,73,RED);
+        glTriangleFilled(98,61,98,106,80,73,YELLOW);
+        glTriangleFilled(98,61,98,106,118,95,YELLOW);
+
+        glTriangleFilled(122,72,141,61,122,94,RED);
+        glTriangleFilled(123,97,123,117,141,107,RED);
+        glTriangleFilled(144,105,161,95,161,75,RED);
+        glTriangleFilled(161,73,162,48,144,60,RED);
+        glTriangleFilled(142,61,123,94,161,72,YELLOW);
+        glTriangleFilled(123,94,141,106,161,72,YELLOW);
+
+        glTriangleFilled(165,47,165,69,184,36,RED);
+        glTriangleFilled(185,36,205,24,205,47,RED);
+        glTriangleFilled(205,48,205,70,186,81,RED);
+        glTriangleFilled(185,82,165,93,165,70,RED);
+        glTriangleFilled(166,70,185,37,185,81,YELLOW);
+        glTriangleFilled(185,37,185,81,204,48,YELLOW);
+
+        glTriangleFilled(35,24,35,47,55,35,RED);
+        glTriangleFilled(56,36,75,47,75,69,RED);
+        glTriangleFilled(75,70,75,93,56,82,RED);
+        glTriangleFilled(55,82,35,70,35,48,RED);
+        glTriangleFilled(54,37,37,47,74,70,YELLOW);
+        glTriangleFilled(37,47,74,70,56,81,YELLOW);
+
+        glTriangleFilled(118,168,118,146,99,157,RED);
+        glTriangleFilled(98,157,79,146,79,123,RED);
+        glTriangleFilled(79,122,79,99,98,110,RED);
+        glTriangleFilled(99,111,118,122,118,145,RED);
+        glTriangleFilled(97,112,80,122,117,144,YELLOW);
+        glTriangleFilled(99,156,80,122,117,144,YELLOW);
+}    
 
 
 
@@ -96,13 +124,13 @@ int main(int argc, char **argv) {
         glBegin2D();
         switch (CurrentState) {
             case TITLE:
-                drawSquare(81, 24, 126, 69, 0);
+                /*drawSquare(81, 24, 126, 69, 0);
                 drawSquare(32, 73, 77, 118, 4);
                 drawSquare(81, 73, 126, 118, 1);
                 drawSquare(130, 73, 175, 118, 5);
                 drawSquare(179, 73, 224, 118, 3);
-                drawSquare(81, 122, 126, 167, 2);
-
+                drawSquare(81, 122, 126, 167, 2);*/
+                drawskewb3d();
                 consoleSetColor(NULL, CONSOLE_DEFAULT);
                 int currentLineLength = 0;
                 printf("\x1b[0;0H"); 
@@ -129,7 +157,7 @@ int main(int argc, char **argv) {
                 }
                 if (keys_down & KEY_B) {
                     removeLastSolve(CurrentCube);
-                    scrollStart = 0;
+                    scrollStart = 0;     
                     consoleClear();
                 }
                 a05(CurrentCube);
