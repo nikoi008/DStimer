@@ -32,49 +32,58 @@ void skeybr(){
 
 }*/
 
-void drawskewb3d(){
-        glTriangleFilled(120,23,100,34,140,34,RED);
-        glTriangleFilled(141,35,141,58,161,46,RED);
-        glTriangleFilled(140,59,120,70,100,59,RED);
-        glTriangleFilled(99,58,80,46,99,35,RED);
-        glBoxFilled(99,34,140,58,YELLOW);
+void drawskewb3d(){//todo test individuals by replacing values in arrays
+        glTriangleFilled(120,23,100,34,140,34,skewb[0][0]);
+        glTriangleFilled(141,35,141,58,161,46,skewb[0][1]);
+        glTriangleFilled(140,59,120,70,100,59,skewb[0][4]);
+        glTriangleFilled(99,58,80,46,99,35,skewb[0][3]);
+        glBoxFilled(99,34,140,58,skewb[0][2]);
 
-        glTriangleFilled(79,49,79,72,98,61,RED);
-        glTriangleFilled(100,62,119,72,119,95,RED);
-        glTriangleFilled(119,96,119,118,98,107,RED);
-        glTriangleFilled(97,106,79,96,79,73,RED);
-        glTriangleFilled(98,61,98,106,80,73,YELLOW);
-        glTriangleFilled(98,61,98,106,118,95,YELLOW);
+        glTriangleFilled(79,49,79,72,98,61,skewb[1][0]);
+        glTriangleFilled(100,62,119,72,119,95,skewb[1][1]);
+        glTriangleFilled(119,96,119,118,98,107,skewb[1][4]);
+        glTriangleFilled(97,106,79,96,79,73,skewb[1][3]);
+        glTriangleFilled(98,61,98,106,80,73,skewb[1][2]);
+        glTriangleFilled(98,61,98,106,118,95,skewb[1][2]);
 
-        glTriangleFilled(122,72,141,61,122,94,RED);
-        glTriangleFilled(123,97,123,117,141,107,RED);
-        glTriangleFilled(144,105,161,95,161,75,RED);
-        glTriangleFilled(161,73,162,48,144,60,RED);
-        glTriangleFilled(142,61,123,94,161,72,YELLOW);
-        glTriangleFilled(123,94,141,106,161,72,YELLOW);
+        glTriangleFilled(122,72,141,61,122,94,skewb[5][0]);
+        glTriangleFilled(123,97,123,117,141,107,skewb[5][3]);
+        glTriangleFilled(144,105,161,95,161,75,skewb[5][4]); 
+        glTriangleFilled(161,73,162,48,144,60,skewb[5][1]);
+        glTriangleFilled(142,61,123,94,161,72,skewb[5][2]);
+        glTriangleFilled(123,94,141,106,161,72,skewb[5][2]);
 
-        glTriangleFilled(165,47,165,69,184,36,RED);
-        glTriangleFilled(185,36,205,24,205,47,RED);
-        glTriangleFilled(205,48,205,70,186,81,RED);
-        glTriangleFilled(185,82,165,93,165,70,RED);
-        glTriangleFilled(166,70,185,37,185,81,YELLOW);
-        glTriangleFilled(185,37,185,81,204,48,YELLOW);
+        glTriangleFilled(165,47,165,69,184,36,skewb[3][0]);
+        glTriangleFilled(185,36,205,24,205,47,skewb[3][1]);
+        glTriangleFilled(205,48,205,70,186,81,skewb[3][4]);
+        glTriangleFilled(185,82,165,93,165,70,skewb[3][3]);
+        glTriangleFilled(166,70,185,37,185,81,skewb[3][2]);
+        glTriangleFilled(185,37,185,81,204,48,skewb[3][2]);
 
-        glTriangleFilled(35,24,35,47,55,35,RED);
-        glTriangleFilled(56,36,75,47,75,69,RED);
-        glTriangleFilled(75,70,75,93,56,82,RED);
-        glTriangleFilled(55,82,35,70,35,48,RED);
-        glTriangleFilled(54,37,37,47,74,70,YELLOW);
-        glTriangleFilled(37,47,74,70,56,81,YELLOW);
+        glTriangleFilled(35,24,35,47,55,35,skewb[4][0]);
+        glTriangleFilled(56,36,75,47,75,69,skewb[4][1]);
+        glTriangleFilled(75,70,75,93,56,82,skewb[4][4]);
+        glTriangleFilled(55,82,35,70,35,48,skewb[4][3]);
+        glTriangleFilled(54,37,37,47,74,70,skewb[4][2]);
+        glTriangleFilled(37,47,74,70,56,81,skewb[4][2]);
 
-        glTriangleFilled(118,168,118,146,99,157,RED);
-        glTriangleFilled(98,157,79,146,79,123,RED);
-        glTriangleFilled(79,122,79,99,98,110,RED);
-        glTriangleFilled(99,111,118,122,118,145,RED);
-        glTriangleFilled(97,112,80,122,117,144,YELLOW);
-        glTriangleFilled(99,156,80,122,117,144,YELLOW);
+        glTriangleFilled(118,168,118,146,99,157,skewb[2][4]);
+        glTriangleFilled(98,157,79,146,79,123,skewb[2][3]);
+        glTriangleFilled(79,122,79,99,98,110,skewb[2][0]);
+        glTriangleFilled(99,111,118,122,118,145,skewb[2][1]);
+        glTriangleFilled(97,112,80,122,117,144,skewb[2][2]);
+        glTriangleFilled(99,156,80,122,117,144,skewb[2][2]);
 }    
-
+void skewbR(){
+    int tempWhite0 = skewb[0][1];
+    skewb[0][1] = skewb[2][4];
+    skewb[2][4] = skewb[1][3];
+    skewb[1][3] = tempWhite0;
+    int tempYellow0 = skewb[3][0];
+    skewb[3][0] = skewb[4][1];
+    skewb[4][1] = skewb[5][0];
+    skewb[5][0] = tempYellow0;
+}
 
 
 #define MAX_LINE_WIDTH 31
@@ -97,7 +106,7 @@ int main(int argc, char **argv) {
 
     int sec = 0;
     int ms = 0;
-
+skewbR();
     while (1) {
  
         swiWaitForVBlank();
@@ -124,13 +133,15 @@ int main(int argc, char **argv) {
         glBegin2D();
         switch (CurrentState) {
             case TITLE:
-                /*drawSquare(81, 24, 126, 69, 0);
+                if(CurrentCube != CUBE_SKEWB){
+                drawSquare(81, 24, 126, 69, 0);
                 drawSquare(32, 73, 77, 118, 4);
                 drawSquare(81, 73, 126, 118, 1);
                 drawSquare(130, 73, 175, 118, 5);
                 drawSquare(179, 73, 224, 118, 3);
-                drawSquare(81, 122, 126, 167, 2);*/
-                drawskewb3d();
+                drawSquare(81, 122, 126, 167, 2);
+                }else{drawskewb3d();}
+                
                 consoleSetColor(NULL, CONSOLE_DEFAULT);
                 int currentLineLength = 0;
                 printf("\x1b[0;0H"); 

@@ -1,6 +1,6 @@
 #include "globals.h"
 
-Cubes CurrentCube = CUBE_3X3;
+Cubes CurrentCube = CUBE_SKEWB;
 TimerState CurrentState = TITLE;
 
 volatile int timer_count = 0;
@@ -12,6 +12,7 @@ u16 skewb[6][5] = {
     {WHITE, WHITE, WHITE, WHITE, WHITE},
     {GREEN, GREEN, GREEN, GREEN, GREEN},
     {YELLOW, YELLOW, YELLOW, YELLOW, YELLOW},
+    {BLUE,BLUE,BLUE,BLUE,BLUE},
     {ORANGE, ORANGE, ORANGE, ORANGE, ORANGE},
     {RED, RED, RED, RED, RED}
 };

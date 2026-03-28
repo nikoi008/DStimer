@@ -28,7 +28,8 @@ typedef enum{
     CUBE_2X2,
     CUBE_3X3,
     CUBE_4X4,
-    CUBE_5X5
+    CUBE_5X5,
+    CUBE_SKEWB
 } Cubes;
 extern Cubes CurrentCube;
 extern TimerState CurrentState;
