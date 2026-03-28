@@ -5,96 +5,16 @@
 #include <fat.h>
 #include <filesystem.h>
 #include "moving.h"
+#include "file_saving.h"
 
 
-#define WHITE  RGB15(31, 31, 31)
-#define GREEN  RGB15(0,  31, 0)
-#define YELLOW RGB15(31, 31, 0)
-#define BLUE   RGB15(0,  0,  31)
-#define ORANGE RGB15(31, 15, 0)
-#define RED    RGB15(31, 0,  0)
-#define BLACK  RGB15(0,0,0)
-#define ANY_BUTTON (KEY_A | KEY_B | KEY_X | KEY_Y | KEY_L | KEY_R | KEY_TOUCH)
-#define ANY_OTHER_BUTTON (KEY_A | KEY_B | KEY_SELECT | KEY_START | KEY_RIGHT | KEY_LEFT | KEY_UP | KEY_DOWN | KEY_R | KEY_L | KEY_X | KEY_Y | KEY_TOUCH)
-enum Face { 
-    FACE_WHITE,  
-    FACE_GREEN,  
-    FACE_YELLOW,
-    FACE_BLUE,  
-    FACE_ORANGE, 
-    FACE_RED     
-};
-
-typedef enum {
-    TITLE,
-    HOLDING,
-    TIMING
-} TimerState;
-
-typedef enum{
-    CUBE_2X2,
-    CUBE_3X3,
-    CUBE_4X4,
-    CUBE_5X5
-//    CUBE_SKEWB
-} Cubes;
-const char* cubePaths[] = {"/session2x2.txt","/session3x3.txt", "/session4x4.txt","/session5x5.txt","/sessionSkewb.txt"};
 
 
-Cubes CurrentCube = CUBE_3X3;
-TimerState CurrentState = TITLE;
-volatile int timer_count = 0;
-volatile int hold_count = 0;
-int scrollStart = 0;
-unsigned long long getSolveCount(Cubes cubeType) {
-    unsigned long long count = 0;
-    const char *path = cubePaths[cubeType];
-    FILE *f = fopen(path, "r");
-    if (f) {
-        fscanf(f, "%16llu", &count);
-        fclose(f);
-    }
-    return count;
-}
-void incrementCount(Cubes cubeType) {
-    unsigned long long solveCount = 0;
-    const char *path = cubePaths[cubeType];
-    FILE *f = fopen(path, "r+");
-    if (f) {
-        fscanf(f, "%16llu", &solveCount);
-        solveCount++;
-        rewind(f);
-        fprintf(f, "%016llu\n", solveCount);
-        fclose(f);
-    }
-}
-void removeLastSolve(Cubes cubeType) {
-    const char *path = cubePaths[cubeType];
-    unsigned long long currentCount = 0;
-    FILE *f = fopen(path, "r+");
-    if (f) {
-        if (fscanf(f, "%llu", &currentCount) == 1) {
-            if (currentCount > 0) {
-                currentCount--;
-                rewind(f);
-                fprintf(f, "%016llu\n", currentCount);
-            }
-        }
-        fclose(f);
-    }
-}
+
+
 void timer_handler(void) { timer_count++; }
 void hold_handler(void) { hold_count++; }
-//u16 skewb[6][5] ={{WHITE, WHITE, WHITE, WHITE, WHITE},{GREEN, GREEN, GREEN, GREEN, GREEN},{YELLOW, YELLOW, YELLOW, YELLOW, YELLOW},{ORANGE, ORANGE, ORANGE, ORANGE, ORANGE},{RED,RED,RED,RED,RED}};
 
-u16 cube[6][25] = {
-    {WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE, WHITE},
-    {GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN, GREEN},
-    {YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW, YELLOW},
-    {BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE, BLUE},
-    {ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE, ORANGE},
-    {RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED, RED}
-};
 
 
 /*
@@ -127,33 +47,7 @@ void drawskewb3d(){
         glTriangleFilled(152,23,174,36,152,50,RED);
 }*/
 
-void addSolve(int solve, Cubes cubeType) {
-    const char *path = cubePaths[cubeType];
-    unsigned long long currentTotal = getSolveCount(cubeType);
-    incrementCount(cubeType);
-    FILE *f = fopen(path, "r+");
-    if (f) {
-        fseek(f, 17 + (currentTotal * 13), SEEK_SET);
-        fprintf(f, "%012d\n", solve);
-        fclose(f);
-    }
-}
 
-void doFilesExist() {
-    for( int i = 0; i < 4; i++){
-        char *path = cubePaths[i];
-        FILE *f = fopen(path, "r");
-        if (f == NULL) {
-            f = fopen(path, "w");
-            if (f != NULL) {
-                fprintf(f, "0000000000000000\n");
-                fclose(f);
-            }
-        } else{
-        fclose(f);
-        }   
-    }
-}
 void displaySolves(Cubes cubeType, int scrollStart) {
     const char *path = cubePaths[cubeType];
     unsigned long long total = getSolveCount(cubeType);
@@ -388,9 +282,7 @@ void DoScramble(char scramble[70][4]) {
 
 }
 }
-void drawCube(){
-    
-}
+
 
 void drawSquare(int topLeftX, int topLeftY, int bottomRightX, int bottomRightY, int cubeIndex) {
     int stickerSize;
