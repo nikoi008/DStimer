@@ -5,9 +5,9 @@ C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cp15.
 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(mpu_setup.s.o)
                               C:/msys64/opt/wonderful/thirdparty/blocksds/core/sys/crts/ds_arm9_crt0.o (__libnds_mpu_setup)
 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(memcpy.s.o)
-                              build/DStimer/source/main.c.o (memcpy)
+                              build/DStimer/source/gui.c.o (memcpy)
 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(memset.s.o)
-                              build/DStimer/source/main.c.o (memset)
+                              build/DStimer/source/gui.c.o (memset)
 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(console.c.o)
                               build/DStimer/source/main.c.o (consoleDemoInit)
 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(crt0_argv.c.o)
@@ -141,11 +141,11 @@ C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fwrite.c.o)
                               build/DStimer/source/file_saving.c.o (fwrite)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_printf.c.o)
-                              build/DStimer/source/main.c.o (printf)
+                              build/DStimer/source/gui.c.o (printf)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_putchar.c.o)
                               build/DStimer/source/main.c.o (putchar)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_puts.c.o)
-                              build/DStimer/source/main.c.o (puts)
+                              build/DStimer/source/gui.c.o (puts)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_rewind.c.o)
                               build/DStimer/source/file_saving.c.o (rewind)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_setvbuf.c.o)
@@ -295,7 +295,7 @@ C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_udivsi3.o)
                               C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fwrite.c.o) (__aeabi_uidiv)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_divsi3.o)
-                              build/DStimer/source/main.c.o (__aeabi_idiv)
+                              build/DStimer/source/gui.c.o (__aeabi_idiv)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_dvmd_tls.o)
                               C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
 C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_lshrdi3.o)
@@ -339,6 +339,9 @@ Discarded input sections
  .data          0x00000000        0x0 build/DStimer/source/globals.c.o
  .bss           0x00000000        0x0 build/DStimer/source/globals.c.o
  .data.skewb    0x00000000       0x3c build/DStimer/source/globals.c.o
+ .text          0x00000000        0x0 build/DStimer/source/gui.c.o
+ .data          0x00000000        0x0 build/DStimer/source/gui.c.o
+ .bss           0x00000000        0x0 build/DStimer/source/gui.c.o
  .text          0x00000000        0x0 build/DStimer/source/main.c.o
  .data          0x00000000        0x0 build/DStimer/source/main.c.o
  .bss           0x00000000        0x0 build/DStimer/source/main.c.o
@@ -1848,20 +1851,20 @@ Linker script and memory map
  .text.doFilesExist
                 0x020058c0       0x54 build/DStimer/source/file_saving.c.o
                 0x020058c0                doFilesExist
- .text.timer_handler
-                0x02005914       0x10 build/DStimer/source/main.c.o
-                0x02005914                timer_handler
- .text.hold_handler
-                0x02005924       0x10 build/DStimer/source/main.c.o
-                0x02005924                hold_handler
  .text.displaySolves
-                0x02005934      0x104 build/DStimer/source/main.c.o
-                0x02005934                displaySolves
- .text.a05      0x02005a38       0xd8 build/DStimer/source/main.c.o
-                0x02005a38                a05
+                0x02005914      0x104 build/DStimer/source/gui.c.o
+                0x02005914                displaySolves
+ .text.a05      0x02005a18       0xd8 build/DStimer/source/gui.c.o
+                0x02005a18                a05
  .text.drawSquare
-                0x02005b10      0x1c4 build/DStimer/source/main.c.o
-                0x02005b10                drawSquare
+                0x02005af0      0x1c4 build/DStimer/source/gui.c.o
+                0x02005af0                drawSquare
+ .text.timer_handler
+                0x02005cb4       0x10 build/DStimer/source/main.c.o
+                0x02005cb4                timer_handler
+ .text.hold_handler
+                0x02005cc4       0x10 build/DStimer/source/main.c.o
+                0x02005cc4                hold_handler
  .text.startup.main
                 0x02005cd4      0x36c build/DStimer/source/main.c.o
                 0x02005cd4                main
@@ -2731,7 +2734,7 @@ Linker script and memory map
 
 .rodata         0x02012d88     0x1638
  *(EXCLUDE_FILE(*.twl*) .rodata)
- .rodata        0x02012d88       0x74 build/DStimer/source/main.c.o
+ .rodata        0x02012d88       0x74 build/DStimer/source/gui.c.o
  .rodata        0x02012dfc      0x15c build/DStimer/source/scrambler.c.o
  .rodata        0x02012f58       0x40 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exceptions.c.o)
  .rodata        0x02012f98        0xb C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_vfscanf.c.o)
@@ -2763,10 +2766,10 @@ Linker script and memory map
                 0x02013632        0x0 build/DStimer/source/file_saving.c.o
                                  0x52 (size before relaxing)
  .rodata.displaySolves.str1.4
-                0x02013632        0x0 build/DStimer/source/main.c.o
+                0x02013632        0x0 build/DStimer/source/gui.c.o
                                  0x43 (size before relaxing)
  .rodata.a05.str1.4
-                0x02013632        0x0 build/DStimer/source/main.c.o
+                0x02013632        0x0 build/DStimer/source/gui.c.o
                                  0x2e (size before relaxing)
  .rodata.main.str1.4
                 0x02013632        0x0 build/DStimer/source/main.c.o
@@ -3409,6 +3412,8 @@ ARM.exidx       0x020143c0        0x8
  .comment       0x00000000       0x2b build/DStimer/source/file_saving.c.o
                                  0x2c (size before relaxing)
  .comment       0x0000002b        0x0 build/DStimer/source/globals.c.o
+                                 0x2c (size before relaxing)
+ .comment       0x0000002b        0x0 build/DStimer/source/gui.c.o
                                  0x2c (size before relaxing)
  .comment       0x0000002b        0x0 build/DStimer/source/main.c.o
                                  0x2c (size before relaxing)
@@ -5418,341 +5423,343 @@ ARM.exidx       0x020143c0        0x8
  .ARM.attributes
                 0x0000004c       0x2b build/DStimer/source/globals.c.o
  .ARM.attributes
-                0x00000077       0x2b build/DStimer/source/main.c.o
+                0x00000077       0x2b build/DStimer/source/gui.c.o
  .ARM.attributes
-                0x000000a2       0x2b build/DStimer/source/moving.c.o
+                0x000000a2       0x2b build/DStimer/source/main.c.o
  .ARM.attributes
-                0x000000cd       0x2b build/DStimer/source/scrambler.c.o
+                0x000000cd       0x2b build/DStimer/source/moving.c.o
  .ARM.attributes
-                0x000000f8       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cp15.s.o)
+                0x000000f8       0x2b build/DStimer/source/scrambler.c.o
  .ARM.attributes
-                0x00000119       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(mpu_setup.s.o)
+                0x00000123       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cp15.s.o)
  .ARM.attributes
-                0x0000013a       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(memcpy.s.o)
+                0x00000144       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(mpu_setup.s.o)
  .ARM.attributes
-                0x00000155       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(memset.s.o)
+                0x00000165       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(memcpy.s.o)
  .ARM.attributes
-                0x00000170       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(console.c.o)
+                0x00000180       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(memset.s.o)
  .ARM.attributes
-                0x0000019b       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(crt0_argv.c.o)
+                0x0000019b       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(console.c.o)
  .ARM.attributes
-                0x000001c6       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(iob.c.o)
+                0x000001c6       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(crt0_argv.c.o)
  .ARM.attributes
-                0x000001f1       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cache.c.o)
+                0x000001f1       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(iob.c.o)
  .ARM.attributes
-                0x0000021c       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(initSystem.c.o)
+                0x0000021c       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cache.c.o)
  .ARM.attributes
-                0x00000247       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(keys.c.o)
+                0x00000247       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(initSystem.c.o)
  .ARM.attributes
-                0x00000272       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(securearea.c.o)
+                0x00000272       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(keys.c.o)
  .ARM.attributes
-                0x0000029d       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(system.c.o)
+                0x0000029d       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(securearea.c.o)
  .ARM.attributes
-                0x000002c8       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(background.c.o)
+                0x000002c8       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(system.c.o)
  .ARM.attributes
-                0x000002f3       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(gl2d.c.o)
+                0x000002f3       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(background.c.o)
  .ARM.attributes
-                0x0000031e       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sprite.c.o)
+                0x0000031e       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(gl2d.c.o)
  .ARM.attributes
-                0x00000349       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sprite_alloc.c.o)
+                0x00000349       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sprite.c.o)
  .ARM.attributes
-                0x00000374       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(video.c.o)
+                0x00000374       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sprite_alloc.c.o)
  .ARM.attributes
-                0x0000039f       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(videoGL.c.o)
+                0x0000039f       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(video.c.o)
  .ARM.attributes
-                0x000003ca       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(threads.c.o)
+                0x000003ca       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(videoGL.c.o)
  .ARM.attributes
-                0x000003f5       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(debugprint.c.o)
+                0x000003f5       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(threads.c.o)
  .ARM.attributes
-                0x00000420       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exceptions.c.o)
+                0x00000420       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(debugprint.c.o)
  .ARM.attributes
-                0x0000044b       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(fifosystem.c.o)
+                0x0000044b       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exceptions.c.o)
  .ARM.attributes
-                0x00000476       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(interrupts.c.o)
+                0x00000476       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(fifosystem.c.o)
  .ARM.attributes
-                0x000004a1       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exit.c.o)
+                0x000004a1       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(interrupts.c.o)
  .ARM.attributes
-                0x000004cc       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(heapfuncs.c.o)
+                0x000004cc       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exit.c.o)
  .ARM.attributes
-                0x000004f7       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(locks.c.o)
+                0x000004f7       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(heapfuncs.c.o)
  .ARM.attributes
-                0x00000522       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sbrk.c.o)
+                0x00000522       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(locks.c.o)
  .ARM.attributes
-                0x0000054d       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(coroutine.c.o)
+                0x0000054d       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sbrk.c.o)
  .ARM.attributes
-                0x00000578       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(swiIntrWait.c.o)
+                0x00000578       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(coroutine.c.o)
  .ARM.attributes
-                0x000005a3       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(timers.c.o)
+                0x000005a3       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(swiIntrWait.c.o)
  .ARM.attributes
-                0x000005ce       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(default_font.png.o)
+                0x000005ce       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(timers.c.o)
  .ARM.attributes
-                0x000005f9       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cpu_clock.s.o)
+                0x000005f9       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(default_font.png.o)
  .ARM.attributes
-                0x0000061a       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(aeabi_read_tp.s.o)
+                0x00000624       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cpu_clock.s.o)
  .ARM.attributes
-                0x00000635       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dma.s.o)
+                0x00000645       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(aeabi_read_tp.s.o)
  .ARM.attributes
-                0x00000650       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exceptionHandler.s.o)
+                0x00000660       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dma.s.o)
  .ARM.attributes
-                0x00000671       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(interruptDispatcher.s.o)
+                0x0000067b       0x21 C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exceptionHandler.s.o)
  .ARM.attributes
-                0x0000068c       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(coroutine.s.o)
+                0x0000069c       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(interruptDispatcher.s.o)
  .ARM.attributes
-                0x000006a7       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dynamicArray.c.o)
+                0x000006b7       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(coroutine.s.o)
  .ARM.attributes
-                0x000006d2       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(keyboard.c.o)
+                0x000006d2       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dynamicArray.c.o)
  .ARM.attributes
-                0x000006fd       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(math.c.o)
+                0x000006fd       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(keyboard.c.o)
  .ARM.attributes
-                0x00000728       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sassert.c.o)
+                0x00000728       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(math.c.o)
  .ARM.attributes
-                0x00000753       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exceptions.c.o)
+                0x00000753       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sassert.c.o)
  .ARM.attributes
-                0x0000077e       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(trig.c.o)
+                0x0000077e       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(exceptions.c.o)
  .ARM.attributes
-                0x000007a9       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(decompress.c.o)
+                0x000007a9       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(trig.c.o)
  .ARM.attributes
-                0x000007d4       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(syscalls.c.o)
+                0x000007d4       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(decompress.c.o)
  .ARM.attributes
-                0x000007ff       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(keyboardGfx.png.o)
+                0x000007ff       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(syscalls.c.o)
  .ARM.attributes
-                0x0000082a       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cpu.s.o)
+                0x0000082a       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(keyboardGfx.png.o)
  .ARM.attributes
-                0x00000845       0x1b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(strcpy.S.o)
+                0x00000855       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cpu.s.o)
  .ARM.attributes
-                0x00000860       0x1c C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(strlen.S.o)
+                0x00000870       0x1b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(strcpy.S.o)
  .ARM.attributes
-                0x0000087c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-calloc.c.o)
+                0x0000088b       0x1c C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(strlen.S.o)
  .ARM.attributes
-                0x000008ab       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-free.c.o)
+                0x000008a7       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-calloc.c.o)
  .ARM.attributes
-                0x000008da       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-malloc.c.o)
+                0x000008d6       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-free.c.o)
  .ARM.attributes
-                0x00000909       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-memalign.c.o)
+                0x00000905       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-malloc.c.o)
  .ARM.attributes
-                0x00000938       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-realloc.c.o)
+                0x00000934       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-memalign.c.o)
  .ARM.attributes
-                0x00000967       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_errno_errno.c.o)
+                0x00000963       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(malloc-realloc.c.o)
  .ARM.attributes
-                0x00000996       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_misc_init.c.o)
+                0x00000992       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_errno_errno.c.o)
  .ARM.attributes
-                0x000009c5       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_search_bsearch.c.o)
+                0x000009c1       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_misc_init.c.o)
  .ARM.attributes
-                0x000009f4       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_rand.c.o)
+                0x000009f0       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_search_bsearch.c.o)
  .ARM.attributes
-                0x00000a23       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_random.c.o)
+                0x00000a1f       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_rand.c.o)
  .ARM.attributes
-                0x00000a52       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_srand.c.o)
+                0x00000a4e       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_random.c.o)
  .ARM.attributes
-                0x00000a81       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_srandom.c.o)
+                0x00000a7d       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_srand.c.o)
  .ARM.attributes
-                0x00000ab0       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_pico-exit.c.o)
+                0x00000aac       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_srandom.c.o)
  .ARM.attributes
-                0x00000adf       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_time.c.o)
+                0x00000adb       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_pico-exit.c.o)
  .ARM.attributes
-                0x00000b0e       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fclose.c.o)
+                0x00000b0a       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_time.c.o)
  .ARM.attributes
-                0x00000b3d       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fflush.c.o)
+                0x00000b39       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fclose.c.o)
  .ARM.attributes
-                0x00000b6c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fopen.c.o)
+                0x00000b68       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fflush.c.o)
  .ARM.attributes
-                0x00000b9b       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fprintf.c.o)
+                0x00000b97       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fopen.c.o)
  .ARM.attributes
-                0x00000bca       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fscanf.c.o)
+                0x00000bc6       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fprintf.c.o)
  .ARM.attributes
-                0x00000bf9       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fseek.c.o)
+                0x00000bf5       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fscanf.c.o)
  .ARM.attributes
-                0x00000c28       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fwrite.c.o)
+                0x00000c24       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fseek.c.o)
  .ARM.attributes
-                0x00000c57       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_printf.c.o)
+                0x00000c53       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fwrite.c.o)
  .ARM.attributes
-                0x00000c86       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_putchar.c.o)
+                0x00000c82       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_printf.c.o)
  .ARM.attributes
-                0x00000cb5       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_puts.c.o)
+                0x00000cb1       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_putchar.c.o)
  .ARM.attributes
-                0x00000ce4       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_rewind.c.o)
+                0x00000ce0       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_puts.c.o)
  .ARM.attributes
-                0x00000d13       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_setvbuf.c.o)
+                0x00000d0f       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_rewind.c.o)
  .ARM.attributes
-                0x00000d42       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_sflags.c.o)
+                0x00000d3e       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_setvbuf.c.o)
  .ARM.attributes
-                0x00000d71       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_vfprintf.c.o)
+                0x00000d6d       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_sflags.c.o)
  .ARM.attributes
-                0x00000da0       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_vfscanf.c.o)
+                0x00000d9c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_vfprintf.c.o)
  .ARM.attributes
-                0x00000dcf       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_vprintf.c.o)
+                0x00000dcb       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_vfscanf.c.o)
  .ARM.attributes
-                0x00000dfe       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_atod_ryu.c.o)
+                0x00000dfa       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_vprintf.c.o)
  .ARM.attributes
-                0x00000e2d       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_atof_ryu.c.o)
+                0x00000e29       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_atod_ryu.c.o)
  .ARM.attributes
-                0x00000e5c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_dtoa_ryu.c.o)
+                0x00000e58       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_atof_ryu.c.o)
  .ARM.attributes
-                0x00000e8b       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_divpow2.c.o)
+                0x00000e87       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_dtoa_ryu.c.o)
  .ARM.attributes
-                0x00000eba       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_log10.c.o)
+                0x00000eb6       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_divpow2.c.o)
  .ARM.attributes
-                0x00000ee9       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_log2pow5.c.o)
+                0x00000ee5       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_log10.c.o)
  .ARM.attributes
-                0x00000f18       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_pow5bits.c.o)
+                0x00000f14       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_log2pow5.c.o)
  .ARM.attributes
-                0x00000f47       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_table.c.o)
+                0x00000f43       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_pow5bits.c.o)
  .ARM.attributes
-                0x00000f76       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_umul128.c.o)
+                0x00000f72       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_table.c.o)
  .ARM.attributes
-                0x00000fa5       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libm_common_s_isnan.c.o)
+                0x00000fa1       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ryu_umul128.c.o)
  .ARM.attributes
-                0x00000fd4       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(memmove.c.o)
+                0x00000fd0       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libm_common_s_isnan.c.o)
  .ARM.attributes
-                0x00001003       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_misc_fini.c.o)
+                0x00000fff       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(memmove.c.o)
  .ARM.attributes
-                0x00001032       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strchr.c.o)
+                0x0000102e       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_misc_fini.c.o)
  .ARM.attributes
-                0x00001061       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strnlen.c.o)
+                0x0000105d       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strchr.c.o)
  .ARM.attributes
-                0x00001090       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_bufio.c.o)
+                0x0000108c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strnlen.c.o)
  .ARM.attributes
-                0x000010bf       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_dtox_engine.c.o)
+                0x000010bb       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_bufio.c.o)
  .ARM.attributes
-                0x000010ee       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_exchange.c.o)
+                0x000010ea       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_dtox_engine.c.o)
  .ARM.attributes
-                0x0000111d       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fdopen.c.o)
+                0x00001119       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_exchange.c.o)
  .ARM.attributes
-                0x0000114c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fgetc.c.o)
+                0x00001148       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fdopen.c.o)
  .ARM.attributes
-                0x0000117b       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fputc.c.o)
+                0x00001177       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fgetc.c.o)
  .ARM.attributes
-                0x000011aa       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fseeko.c.o)
+                0x000011a6       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fputc.c.o)
  .ARM.attributes
-                0x000011d9       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ungetc.c.o)
+                0x000011d5       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fseeko.c.o)
  .ARM.attributes
-                0x00001208       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_compare_exchange.c.o)
+                0x00001204       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_ungetc.c.o)
  .ARM.attributes
-                0x00001237       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(filesystem.c.o)
+                0x00001233       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_compare_exchange.c.o)
  .ARM.attributes
-                0x00001262       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(nitrofs.c.o)
+                0x00001262       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(filesystem.c.o)
  .ARM.attributes
-                0x0000128d       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(card.c.o)
+                0x0000128d       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(nitrofs.c.o)
  .ARM.attributes
-                0x000012b8       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dldi.c.o)
+                0x000012b8       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(card.c.o)
  .ARM.attributes
-                0x000012e3       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(card.c.o)
+                0x000012e3       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dldi.c.o)
  .ARM.attributes
-                0x0000130e       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(syscalls.c.o)
+                0x0000130e       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(card.c.o)
  .ARM.attributes
-                0x00001339       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(ff.c.o)
+                0x00001339       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(syscalls.c.o)
  .ARM.attributes
-                0x00001364       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(ffunicode.c.o)
+                0x00001364       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(ff.c.o)
  .ARM.attributes
-                0x0000138f       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dldi_stub.s.o)
+                0x0000138f       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(ffunicode.c.o)
  .ARM.attributes
-                0x000013aa       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cache.c.o)
+                0x000013ba       0x1b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(dldi_stub.s.o)
  .ARM.attributes
-                0x000013d5       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(diskio.c.o)
+                0x000013d5       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(cache.c.o)
  .ARM.attributes
-                0x00001400       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(ffsystem.c.o)
+                0x00001400       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(diskio.c.o)
  .ARM.attributes
-                0x0000142b       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(fatfs.c.o)
+                0x0000142b       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(ffsystem.c.o)
  .ARM.attributes
-                0x00001456       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(nandfs.c.o)
+                0x00001456       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(fatfs.c.o)
  .ARM.attributes
-                0x00001481       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sdmmc.c.o)
+                0x00001481       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(nandfs.c.o)
  .ARM.attributes
-                0x000014ac       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(chdir.c.o)
+                0x000014ac       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(sdmmc.c.o)
  .ARM.attributes
-                0x000014d7       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_memcmp.c.o)
+                0x000014d7       0x2b C:/msys64/opt/wonderful/thirdparty/blocksds/core/libs/libnds/lib\libnds9.a(chdir.c.o)
  .ARM.attributes
-                0x00001506       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strcat.c.o)
+                0x00001502       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_memcmp.c.o)
  .ARM.attributes
-                0x00001535       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strdup.c.o)
+                0x00001531       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strcat.c.o)
  .ARM.attributes
-                0x00001564       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strncmp.c.o)
+                0x00001560       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strdup.c.o)
  .ARM.attributes
-                0x00001593       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strncpy.c.o)
+                0x0000158f       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strncmp.c.o)
  .ARM.attributes
-                0x000015c2       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strstr.c.o)
+                0x000015be       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strncpy.c.o)
  .ARM.attributes
-                0x000015f1       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_lcltime.c.o)
+                0x000015ed       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_string_strstr.c.o)
  .ARM.attributes
-                0x00001620       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_lcltime_r.c.o)
+                0x0000161c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_lcltime.c.o)
  .ARM.attributes
-                0x0000164f       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_lcltime_buf.c.o)
+                0x0000164b       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_lcltime_r.c.o)
  .ARM.attributes
-                0x0000167e       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_mktime.c.o)
+                0x0000167a       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_lcltime_buf.c.o)
  .ARM.attributes
-                0x000016ad       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_month_lengths.c.o)
+                0x000016a9       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_mktime.c.o)
  .ARM.attributes
-                0x000016dc       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_tzcalc_limits.c.o)
+                0x000016d8       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_month_lengths.c.o)
  .ARM.attributes
-                0x0000170b       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_tzset.c.o)
+                0x00001707       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_tzcalc_limits.c.o)
  .ARM.attributes
-                0x0000173a       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_tzvars.c.o)
+                0x00001736       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_tzset.c.o)
  .ARM.attributes
-                0x00001769       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fileno.c.o)
+                0x00001765       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_tzvars.c.o)
  .ARM.attributes
-                0x00001798       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fread.c.o)
+                0x00001794       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fileno.c.o)
  .ARM.attributes
-                0x000017c7       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_sscanf.c.o)
+                0x000017c3       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_fread.c.o)
  .ARM.attributes
-                0x000017f6       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_strtoul.c.o)
+                0x000017f2       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_sscanf.c.o)
  .ARM.attributes
-                0x00001825       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_div.c.o)
+                0x00001821       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_strtoul.c.o)
  .ARM.attributes
-                0x00001854       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_getenv.c.o)
+                0x00001850       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_div.c.o)
  .ARM.attributes
-                0x00001883       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_getenv_r.c.o)
+                0x0000187f       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_getenv.c.o)
  .ARM.attributes
-                0x000018b2       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_gettzinfo.c.o)
+                0x000018ae       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_getenv_r.c.o)
  .ARM.attributes
-                0x000018e1       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_gmtime_r.c.o)
+                0x000018dd       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_gettzinfo.c.o)
  .ARM.attributes
-                0x00001910       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_filestrget.c.o)
+                0x0000190c       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_time_gmtime_r.c.o)
  .ARM.attributes
-                0x0000193f       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_environ.c.o)
+                0x0000193b       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_tinystdio_filestrget.c.o)
  .ARM.attributes
-                0x0000196e       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_thumb1_case_uqi.o)
+                0x0000196a       0x2f C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/../../../../arm-none-eabi/lib/thumb/arm946e-s\libc.a(libc_stdlib_environ.c.o)
  .ARM.attributes
-                0x0000198b       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_thumb1_case_uhi.o)
+                0x00001999       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_thumb1_case_uqi.o)
  .ARM.attributes
-                0x000019a8       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_mulsf3.o)
+                0x000019b6       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_thumb1_case_uhi.o)
  .ARM.attributes
-                0x000019c5       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_udivsi3.o)
+                0x000019d3       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_mulsf3.o)
  .ARM.attributes
-                0x000019e2       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_divsi3.o)
+                0x000019f0       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x000019ff       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_dvmd_tls.o)
+                0x00001a0d       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_divsi3.o)
  .ARM.attributes
-                0x00001a1c       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_lshrdi3.o)
+                0x00001a2a       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x00001a39       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_ashrdi3.o)
+                0x00001a47       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_lshrdi3.o)
  .ARM.attributes
-                0x00001a56       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_ashldi3.o)
+                0x00001a64       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_ashrdi3.o)
  .ARM.attributes
-                0x00001a73       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_addsubdf3.o)
+                0x00001a81       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_ashldi3.o)
  .ARM.attributes
-                0x00001a90       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_truncdfsf2.o)
+                0x00001a9e       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00001aad       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_addsubsf3.o)
+                0x00001abb       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_truncdfsf2.o)
  .ARM.attributes
-                0x00001aca       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_fixsfsi.o)
+                0x00001ad8       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x00001ae7       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_clzsi2.o)
+                0x00001af5       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_arm_fixsfsi.o)
  .ARM.attributes
-                0x00001b04       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_clzdi2.o)
+                0x00001b12       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_clzsi2.o)
  .ARM.attributes
-                0x00001b21       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_aeabi_ldivmod.o)
+                0x00001b2f       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_clzdi2.o)
  .ARM.attributes
-                0x00001b3e       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_aeabi_uldivmod.o)
+                0x00001b4c       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_aeabi_ldivmod.o)
  .ARM.attributes
-                0x00001b5b       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_sync_none.o)
+                0x00001b69       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x00001b78       0x2b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_udivmoddi4.o)
+                0x00001b86       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_sync_none.o)
  .ARM.attributes
-                0x00001ba3       0x1b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(muldi3.o)
+                0x00001ba3       0x2b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(_udivmoddi4.o)
  .ARM.attributes
-                0x00001bbe       0x2b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s/crtend.o
+                0x00001bce       0x1b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s\libgcc.a(muldi3.o)
  .ARM.attributes
-                0x00001be9       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s/crtn.o
+                0x00001be9       0x2b C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s/crtend.o
+ .ARM.attributes
+                0x00001c14       0x1d C:/msys64/opt/wonderful/toolchain/gcc-arm-none-eabi/lib/gcc/arm-none-eabi/15.2.1/thumb/arm946e-s/crtn.o
  *(.gnu.attributes)
 
 .note.gnu.arm.ident
@@ -5767,6 +5774,7 @@ ARM.exidx       0x020143c0        0x8
 LOAD C:/msys64/opt/wonderful/thirdparty/blocksds/core/sys/crts/ds_arm9_crt0.o
 LOAD build/DStimer/source/file_saving.c.o
 LOAD build/DStimer/source/globals.c.o
+LOAD build/DStimer/source/gui.c.o
 LOAD build/DStimer/source/main.c.o
 LOAD build/DStimer/source/moving.c.o
 LOAD build/DStimer/source/scrambler.c.o
